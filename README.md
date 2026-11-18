@@ -31,10 +31,11 @@ I've built desktop apps, web platforms and data pipelines end to end. The work I
 |:---:|---|---|
 | 🧱 | **Layered, defence-in-depth architecture:** designed four independent checks (camera, challenge-response, signal analysis, identity match) feeding one risk-decision layer, so no single check is a point of failure | [PulseGuard](https://github.com/fast-na-ana/pulseguard) |
 | 📚 | **Append-only ledger:** double-entry posting where posted lines are immutable and corrections are reversing entries, with balance enforced per transaction | [Bloc](https://github.com/fast-na-ana/bloc) |
+| 🧩 | **Layered service architecture:** routes → controllers → services → data layer, with auth, optional-auth and admin middleware for role-based access, and the external movie API isolated behind a rate-limited, cached service | [CineSocial](https://github.com/ofar00q/Cinesocial-Webapp) |
 | 🔌 | **Two-process desktop architecture:** a Rust core owns all business logic and the UI talks to it over 36 typed IPC commands, with no HTTP layer | [Bloc](https://github.com/fast-na-ana/bloc) |
-| 🔒 | **Transactional consistency:** multi-table writes such as seat booking or invoice posting commit atomically or roll back fully, so failures leave no orphan rows | [CampusRide](https://github.com/fast-na-ana/campusride) · [Bloc](https://github.com/fast-na-ana/bloc) |
+| 🔒 | **Transactional consistency:** multi-table writes such as seat booking, invoice posting or premium upgrades commit atomically or roll back fully, so failures leave no orphan rows | [CampusRide](https://github.com/fast-na-ana/campusride) · [Bloc](https://github.com/fast-na-ana/bloc) · [CineSocial](https://github.com/ofar00q/Cinesocial-Webapp) |
 | 🧭 | **Clear trust boundaries:** the LLM only parses and normalises text, and all medical range checks run in deterministic code against a versioned knowledge base | [Lab Report Analyzer](https://github.com/fast-na-ana/lab-report-analyzer) |
-| 🗃️ | **Data modelling:** a 14-table normalised relational schema and a REST API designed on top of it | [CampusRide](https://github.com/fast-na-ana/campusride) |
+| 🗃️ | **Data modelling:** normalised relational schemas with views and stored procedures that keep query logic in the database, each with a REST API designed on top | [CampusRide](https://github.com/fast-na-ana/campusride) · [CineSocial](https://github.com/ofar00q/Cinesocial-Webapp) |
 
 ### ⚙️ DevOps & automation in my projects
 
@@ -59,25 +60,30 @@ I've built desktop apps, web platforms and data pipelines end to end. The work I
 <p><code>Rust</code> <code>Tauri</code> <code>React</code> <code>TypeScript</code> <code>SQLite</code></p>
 </td>
 <td width="50%" valign="top">
+<h4>🎬 <a href="https://github.com/ofar00q/Cinesocial-Webapp">CineSocial</a> <sub>team project</sub></h4>
+<p>A social platform for rating and discussing films. Built as a layered Express backend with <b>11 REST modules</b>, role-based auth middleware, a rate-limited and cached <b>TMDB</b> integration service, and a SQL Server data layer of views, stored procedures and transactional workflows. I was the top committer, including the architecture refactor.</p>
+<p><code>React</code> <code>Express</code> <code>SQL Server</code> <code>JWT</code> <code>REST</code></p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 <h4>🫀 <a href="https://github.com/fast-na-ana/pulseguard">PulseGuard</a></h4>
 <p>A layered deepfake firewall for remote KYC, designed as four independent checks feeding one risk decision, and backed by a restartable data pipeline over <b>15k+ video windows</b> and a model packaged for <b>offline deployment</b>.</p>
 <p><code>Python</code> <code>PyTorch</code> <code>OpenCV</code> <code>ONNX</code></p>
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 <h4>🚗 <a href="https://github.com/fast-na-ana/campusride">CampusRide</a></h4>
 <p>Three-tier carpooling platform: a 14-table SQL Server schema, an Express REST API with JWT auth and transactional seat booking, a React frontend, and scripted database provisioning.</p>
 <p><code>Node.js</code> <code>Express</code> <code>SQL Server</code> <code>React</code> <code>PowerShell</code></p>
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 <h4>📗 <a href="https://github.com/fast-na-ana/bloc-books">Bloc Books</a></h4>
 <p>A customised, fully offline build of the open-source Frappe Books. I removed the network dependencies (telemetry, updater, sync) and added credit control, payment verification and keyboard-first entry. About <b>30 commits across 240+ files</b>.</p>
 <p><code>TypeScript</code> <code>Vue 3</code> <code>Electron</code> <code>GitHub Actions</code></p>
 </td>
-</tr>
-<tr>
-<td colspan="2" valign="top">
+<td width="50%" valign="top">
 <h4>🩺 <a href="https://github.com/fast-na-ana/lab-report-analyzer">Lab Report Analyzer</a></h4>
 <p>Lab-report analysis with a strict boundary: an LLM parses PDFs, and a deterministic engine checks values against a 125-test knowledge base, so the numbers can't be hallucinated. Supports Urdu, Punjabi and voice.</p>
 <p><code>Python</code> <code>Streamlit</code> <code>Groq / Llama 3.3</code></p>
